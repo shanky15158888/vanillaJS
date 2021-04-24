@@ -1,0 +1,23 @@
+.card {
+    height: 150px;
+    width: 150px;
+    border: 1px solid rgb(146, 17, 17);
+    margin: 50px;
+}
+.cards {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.cards>div {
+    padding: 10px;
+}
+.searchbar, .sort {
+    margin: 50px;
+}
+.paginationContainer {
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    margin: 50px;
+}
