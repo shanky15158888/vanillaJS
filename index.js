@@ -8,6 +8,7 @@ function updateCards(items, start, end) {
     cards.innerHTML = renderCards(items, start, end);
     const paginationElement = document.querySelector(".paginationContainer");
     paginationElement.innerHTML = getPagination();
+console.log()
 }
 function getDebounce(callback, delay) {
     let timeout;
