@@ -1,7 +1,7 @@
 const localStorageName = "data";
 const  details = localStorage.getItem(localStorageName)? JSON.parse(localStorage.getItem(localStorageName)): {
     data: [],
-    soryBy: "ascending"
+    sortBy: "ascending"
 };
 const root = document.querySelector("#root")
 root.innerHTML = getWidget(details.data);
@@ -115,6 +115,9 @@ const userId = "shanky";
 
 function deleteItem(arr, index) {
     arr.splice(index, 1)
+    if(!details.data.length) {
+        details.sortBy = "ascending"
+    }
     updateLocalStorage()
     updateComments(details.data);
     attachEventToSubComments()
@@ -199,10 +202,10 @@ function getComments(data, parent) {
             return ""
         }
     }
-    let html = `<select class="sort" id="${value}">
+    let html = data.length? `<select class="sort" id="${value}">
         <option value="ascending" ${isSelected(sortBy, "ascending")}>Ascending</option>
         <option value="descending" ${isSelected(sortBy, "descending")}>Descending</option>
-    </select>`
+    </select>`: ''
     html += '<ul>';
     data.forEach((item, index) => {
         html += getComment(item, index, parent);
