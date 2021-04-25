@@ -148,8 +148,11 @@ function attachEventToSubComments() {
 }
 function updateItem(obj, itemToUpdate, value) {
     if(Array.isArray(obj[itemToUpdate])) {
-        if(!obj[itemToUpdate].includes(value)) {
+        const indexOfValue = obj[itemToUpdate].indexOf(value);
+        if(indexOfValue < 0) {
             obj[itemToUpdate].push(value);
+        } else {
+            obj[itemToUpdate].splice(indexOfValue, 1) 
         }
     } else {
         obj[itemToUpdate] = value;
