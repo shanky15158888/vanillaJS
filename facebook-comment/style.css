@@ -1,0 +1,12 @@
+ul {
+    list-style-type: none;
+    /* padding-left: 0px */
+}
+.comment {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+.comment div:first-child {
+    padding-left: 0px
+}
